@@ -102,10 +102,21 @@ id updateHandler;
 			updateHandler = nil;
 		}
 
-		updateHandler = [connectedWatch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *message) {
+		updateHandler = [connectedWatch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *dictionary) {
 			NSLog(@"[DEBUG] Pebble.listenToConnectedWatch: Received message");
 
-			[self fireEvent:@"update" withObject:@{ @"message": message[MESSAGE_KEY] }];
+			NSMutableArray * messages = [NSMutableArray new];
+
+			[dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+				[messages addObject:@{
+					@"key": key,
+					@"message": value
+				}];
+			}];
+
+			[self fireEvent:@"update" withObject:@{
+				@"messages": messages
+			}];
 
 			return YES;
 		}];
@@ -379,7 +390,7 @@ id updateHandler;
 
 				[self _fireEventToListener:@"success" withObject:nil listener:successCallback thisObject:nil];
 			} else {
-				NSLog(@"[ERROR] Pebble.sendMessage: Error");
+				NSLog(@"[ERROR] Pebble.sendMessage: Error: %@", error);
 
 				[self _fireEventToListener:@"error" withObject:error listener:errorCallback thisObject:nil];
 			}

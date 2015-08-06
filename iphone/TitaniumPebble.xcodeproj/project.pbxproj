@@ -264,9 +264,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/joebeuckman/pebble-dev/PebbleSDK-2.2/PebbleKit-iOS",
-					"/Users/innovator/pebble-dev/PebbleSDK-2.1.1/PebbleKit-iOS",
-					"/Users/matthewcongrove/pebble-dev/PebbleSDK-2.3/PebbleKit-iOS",
+					"$(PROJECT_DIR)/../frameworks/PebbleSDK-3.2/PebbleKit-iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -311,9 +309,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/joebeuckman/pebble-dev/PebbleSDK-2.2/PebbleKit-iOS",
-					"/Users/innovator/pebble-dev/PebbleSDK-2.1.1/PebbleKit-iOS",
-					"/Users/matthewcongrove/pebble-dev/PebbleSDK-2.3/PebbleKit-iOS",
+					"$(PROJECT_DIR)/frameworks/PebbleSDK-3.2/PebbleKit-iOS",
 				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_MODEL_TUNING = G5;

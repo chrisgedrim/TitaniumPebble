@@ -1,1 +1,1 @@
-OTHER_LDFLAGS=$(inherited) -F${HOME}/pebble-dev/PebbleSDK-current/PebbleKit-iOS -framework CFNetwork -framework CoreMotion -framework ExternalAccessory -framework MessageUI -framework CoreBluetooth -framework PebbleKit -framework PebbleVendor
+OTHER_LDFLAGS=$(inherited) -F${SRCROOT}/../../modules/iphone/com.mcongrove.pebble/1.2/frameworks/PebbleSDK-3.2/PebbleKit-iOS -framework CFNetwork -framework CoreMotion -framework ExternalAccessory -framework MessageUI -framework CoreBluetooth -framework PebbleKit -framework PebbleVendor

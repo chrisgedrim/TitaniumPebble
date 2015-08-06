@@ -230,17 +230,18 @@ def package_module(manifest,mf,config):
 			for file, html in doc.iteritems():
 				filename = string.replace(file,'.md','.html')
 				zf.writestr('%s/documentation/%s'%(modulepath,filename),html)
-				
+
 	apidoc_build_path = os.path.join(cwd, "build", "apidoc")
 	if generate_apidoc(apidoc_build_path):
 		for file in os.listdir(apidoc_build_path):
 			if file in ignoreFiles or os.path.isdir(os.path.join(apidoc_build_path, file)):
 				continue
 			zf.write(os.path.join(apidoc_build_path, file), '%s/documentation/apidoc/%s' % (modulepath, file))
-	
+
 	zip_dir(zf,'assets',modulepath,['.pyc','.js'])
 	zip_dir(zf,'example',modulepath,['.pyc'])
 	zip_dir(zf,'platform',modulepath,['.pyc','.js'])
+	zip_dir(zf,'frameworks',modulepath,[])
 	zf.write('LICENSE','%s/LICENSE' % modulepath)
 	zf.write('module.xcconfig','%s/module.xcconfig' % modulepath)
 	exports_file = 'metadata.json'
